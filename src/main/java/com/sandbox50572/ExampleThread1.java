@@ -19,25 +19,32 @@ public class ExampleThread1 implements Runnable {
         //TODO Перевести в секунды!!!
         //инициализация временнои переменнои и
 
+        /*
         //получение случаиного числа
         //в диапазоне до 1000
         int a = random.nextInt(1000);
         //миллисекунды -> секунды
         //time = a * 1000;
         //TODO проверка
-        time = a;
+        //time = a;
+        */
+        //время задержки
+        time = 1000;
     }
 
     public void run() {
 
-        //вывод на экран номера потока
-       System.out.println("Запущен дочернии поток " + name + " " + time);
+        for(int i=5; i>0; i--) {
+            //вывод на экран номера потока
+            System.out.println("Запущен дочернии поток " + name + " " + time);
 
-       //засыпание потока на случайное число
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            //засыпание потока на случайное число
+            try {
+                Thread.sleep(time);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 }
