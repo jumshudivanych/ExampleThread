@@ -6,13 +6,31 @@ package com.sandbox50572;
  */
 public class App 
 {
+    public static String s1;
+    private static long a;
+    private static String s2;
+    private static long b;
+    private static String s3;
+    private static long c;
+    private static String s4;
+    private static long d;
+
+
     public static void main( String[] args )
     {
 
+        s1 = "Первое плечо А";
+        s2 = "Первое плечо Б";
+        s3 = "Второе плечо А";
+        s4 = "Второе плечо Б";
+        a = 1000;
+        b = 900;
+        c = 800;
+        d = 700;
         //создание объекта
-        Runnable exampleThread2 = new ExampleThread1("Thread2");
+        Runnable coordinator1 = new Coordinator(s1, a, s2, b);
         //инициализация нового потока
-        Thread thread2 = new Thread(exampleThread2);
+        Thread thread2 = new Thread(coordinator1);
         //стартуем новыи поток
         thread2.start();
 
@@ -26,27 +44,18 @@ public class App
         }
         */
 
+        //TODO второй баян в параллельном потоке
         //создание объекта
-        Runnable exampleThread3 = new ExampleThread1("Thread3");
+
+        Runnable coordinator2 = new Coordinator(s3, c, s4, d);
         //инициализация нового потока
-        Thread thread3 = new Thread(exampleThread3);
+        Thread thread3 = new Thread(coordinator2);
         //стартуем новыи поток
         thread3.start();
 
 
 
-        for(int i=5; i > 0; i--) {
 
-            //выполнение в main потоке
-            System.out.println("основной поток метод main.");
-            //засыпание основного потока
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-        }
 
     }
 }
